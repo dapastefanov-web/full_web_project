@@ -1,0 +1,55 @@
+{
+    "list":[
+        "stavam"
+        ,"miq si o4ite"
+        ,"zakusvam"
+        ,"miq si zubite"
+    ]
+    ,"recepti":[
+        {
+            "title":"pala4inka"
+            ,"img":"url"
+            ,"sastavki":[
+                "Брашно"
+                ,"Яйца"
+                ,"Мляко"
+            ]
+            ,"prigotviane":"burka6, izliva6, parji6"
+        }
+        ,
+        {
+            "title":"kebab4e"
+            ,"img":"url"
+            ,"sastavki":[
+                "meso"
+                ,"ketchup"
+            ]
+            ,"prigotviane":"burka6, izliva6, parji6"
+        }
+        ,
+        {
+            "title":"gofreti"
+            ,"img":"url"
+            ,"sastavki":[
+                "Брашно"
+                ,"Яйца"
+                ,"Мляко"
+            ]
+            ,"prigotviane":"burka6, izliva6, parji6"
+        }
+        ,
+        {
+            "title":"torta"
+            ,"img":"url"
+            ,"sastavki":[
+                "Брашно"
+                ,"Яйца"
+                ,"Мляко"
+                ,"zahar"
+                ,"biskviti"
+            ]
+            ,"prigotviane":"burka6, izliva6, parji6"
+        }
+    ]
+
+}
