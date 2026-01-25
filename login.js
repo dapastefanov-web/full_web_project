@@ -37,4 +37,3 @@ async function recepti(){
     document.getElementById("registration_page").style.display = "none";
     document.getElementById("recepti").innerHTML = `<ul>${html}</ul>`;
 }
-recepti();
