@@ -5,50 +5,50 @@
         ,"zakusvam"
         ,"miq si zubite"
     ]
-    ,"recepti":[
+    ,"recipes":[
         {
             "title":"pala4inka"
             ,"img":"url"
-            ,"sastavki":[
+            ,"ingredients":[
                 "Брашно"
                 ,"Яйца"
                 ,"Мляко"
             ]
-            ,"prigotviane":"burka6, izliva6, parji6"
+            ,"preparation":"burka6, izliva6, parji6"
         }
         ,
         {
             "title":"kebab4e"
             ,"img":"url"
-            ,"sastavki":[
+            ,"ingredients":[
                 "meso"
                 ,"ketchup"
             ]
-            ,"prigotviane":"burka6, izliva6, parji6"
+            ,"preparation":"burka6, izliva6, parji6"
         }
         ,
         {
             "title":"gofreti"
             ,"img":"url"
-            ,"sastavki":[
+            ,"ingredients":[
                 "Брашно"
                 ,"Яйца"
                 ,"Мляко"
             ]
-            ,"prigotviane":"burka6, izliva6, parji6"
+            ,"preparation":"burka6, izliva6, parji6"
         }
         ,
         {
             "title":"torta"
             ,"img":"url"
-            ,"sastavki":[
+            ,"ingredients":[
                 "Брашно"
                 ,"Яйца"
                 ,"Мляко"
                 ,"zahar"
                 ,"biskviti"
             ]
-            ,"prigotviane":"burka6, izliva6, parji6"
+            ,"preparation":"burka6, izliva6, parji6"
         }
     ]
 
