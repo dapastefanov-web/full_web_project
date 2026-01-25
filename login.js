@@ -27,7 +27,7 @@ async function recepti(){
     //fetch recipes from json file
     const res = await fetch('/api.json');
     const json = await res.json();
-    const recipes = json.recepti;
+    const recipes = json.recipes;
     let html = "";
     //put every recipe title with it's ingrediants in an html variable as list elements
     recipes.forEach(function(recipe){
