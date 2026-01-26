@@ -31,15 +31,12 @@ async function recepti(){
     let html = "";
     //put every recipe title with it's ingrediants in an html variable as list elements
     recipes.forEach(function(recipe){
-        html += `<li>
-        <h1> ${recipe.title} </h1>
-        <h3>sastavki:</h3>
-        <ul>`;
+        html += `<h1> ${recipe.title} </h1>
+        <h3>sastavki:</h3>`;
         recipe.ingredients.forEach(function(ingredient){
-            html += `<li> ${ingredient} </li>`
+            html += ` ${ingredient} `
         });
-        html += '</ul></li>'
     });
     //puting the html variable in to the HTML as an unsorted list
-    document.getElementById("recipes").innerHTML = `<ul>${html}</ul>`;
+    document.getElementById("recipes").innerHTML = html;
 }
