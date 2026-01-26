@@ -41,4 +41,4 @@ async function show_recipes(){
     document.getElementById ( "recipes" ).innerHTML = `<ul> ${ html } </ul>`;
 }
 //uncomment the next line to skip the registration page while testing
-show_recipes()
+//show_recipes()
