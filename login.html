@@ -7,18 +7,26 @@
         <div id = "registration_page" style = "display: inline;">
             <h1>Registration:</h2>
 
+            <div>
             <h2>Name:</h2>
-            <input type = "text" id = "name">
+            <input class = "registration_info" type = "text" id = "name" >
+            </div>
 
+            <div>
             <h2>Email:</h2>
-            <input type = "email" id = "email">
-
+            <input class = "registration_info" type = "email" id = "email">
+            </div>
+            
+            <div>
             <h2>Password:</h2>
-            <input type = "password" id = "password">
-
+            <input class = "registration_info" type = "password" id = "password">
+            </div>
+            
+            <div>
             <h2>Phone number:</h2>
             <h5>*optional</h5>
-            <input type = "tel" id = "phone_number"><br><br>
+            <input class = "registration_info" type = "tel" id = "phone_number"><br><br>
+            </div>
 
             <button onclick = "register()">Register</button>
         </div>
