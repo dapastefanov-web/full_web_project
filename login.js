@@ -2,9 +2,14 @@ function register(){
     //save personal info to constats when "register" button is clicked
     const registration_info = document.getElementsByClassName("registration_info").value;
     console.log(registration_info);
-    registration_info.forEach(function(data){
+    registration_info.forEach(function (data, index, array){
         if (data == null){
-            window.alert(`Type in ${registration_info.data}`)
+            window.alert(`Type in your ${registration_info.data}`);
+            return;
+        }
+        if (index === array.lengh - 1){
+            document.getElementById("registration_page").style.display = "none";
+            recepti();
         }
     });
     // const name = document.getElementById("name").value;
@@ -26,10 +31,12 @@ function register(){
     //         alert("You are registered "+ name);
     //         document.title = "Starting page";
     //         //remove the registration page
-    //         document.getElementById("registration_page").style.display = "none";
-    //         recepti();
+            
     // }
 }
+
+
+
 async function recepti(){
     //fetch recipes from json file
     const res = await fetch('/api.json');
