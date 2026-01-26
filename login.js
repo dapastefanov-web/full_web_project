@@ -1,27 +1,34 @@
 function register(){
     //save personal info to constats when "register" button is clicked
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const phone_number = document.getElementById("phone_number").value;
+    const registration_info = document.getElementsByClassName("registration_info").value;
+    console.log(registration_info);
+    registration_info.forEach(function(data){
+        if (data == null){
+            window.alert(`Type in ${registration_info.data}`)
+        }
+    });
+    // const name = document.getElementById("name").value;
+    // const email = document.getElementById("email").value;
+    // const password = document.getElementById("password").value;
+    // const phone_number = document.getElementById("phone_number").value;
     //check if the person has entered all the info that is needed
-    switch(true){
-        case name == null:
-            alert("type in your name");
-            break;
-        case email == null:
-            alert("type in your Email");
-            break;
-        case password == null:
-            alert("type in a Password");
-            break;
-        default:
-            alert("You are registered "+ name);
-            document.title = "Starting page";
-            //remove the registration page
-            document.getElementById("registration_page").style.display = "none";
-            recepti();
-    }
+    // switch(true){
+    //     case name == null:
+    //         alert("type in your name");
+    //         break;
+    //     case email == null:
+    //         alert("type in your Email");
+    //         break;
+    //     case password == null:
+    //         alert("type in a Password");
+    //         break;
+    //     default:
+    //         alert("You are registered "+ name);
+    //         document.title = "Starting page";
+    //         //remove the registration page
+    //         document.getElementById("registration_page").style.display = "none";
+    //         recepti();
+    // }
 }
 async function recepti(){
     //fetch recipes from json file
@@ -34,7 +41,7 @@ async function recepti(){
         html += `<h1> ${recipe.title} </h1>
         <h3> sastavki: </h3>`;
         recipe.ingredients.forEach(function(ingredient){
-            html += ingredient
+            html += `<li> ${ingredient} </li>`
         });
     });
     //puting the html variable in to the HTML as an unsorted list
