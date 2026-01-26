@@ -25,7 +25,7 @@ async function show_recipes(){
     //remove the registration page
     document.getElementById( "registration_page" ).style.display = "none";
     //fetch recipes from json file
-    const response = await fetch ( '/api.json' );
+    const response = await fetch ( "/api.json" );
     const json = await response.json();
     const recipes = json.recipes;
     let html = "";
