@@ -32,9 +32,9 @@ async function recepti(){
     //put every recipe title with it's ingrediants in an html variable as list elements
     recipes.forEach(function(recipe){
         html += `<h1> ${recipe.title} </h1>
-        <h3>sastavki:</h3>`;
+        <h3> sastavki: </h3>`;
         recipe.ingredients.forEach(function(ingredient){
-            html += ` ${ingredient} `
+            html += ingredient
         });
     });
     //puting the html variable in to the HTML as an unsorted list
