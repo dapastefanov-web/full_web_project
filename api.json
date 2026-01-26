@@ -1,11 +1,4 @@
-{
-    "list":[
-        "stavam"
-        ,"miq si o4ite"
-        ,"zakusvam"
-        ,"miq si zubite"
-    ]
-    ,"recipes":[
+{   "recipes":[
         {
             "title":"pala4inka"
             ,"img":"url"

@@ -18,28 +18,27 @@ function register(){
         default:
             alert("You are registered "+ name);
             document.title = "Starting page";
-            //remove the registration page
-            document.getElementById("registration_page").style.display = "none";
-            recepti();
+            show_recipes();
     }
 }
-async function recepti(){
+async function show_recipes(){
+    //remove the registration page
+    document.getElementById("registration_page").style.display = "none";
     //fetch recipes from json file
-    const res = await fetch('/api.json');
-    const json = await res.json();
+    const response = await fetch('/api.json');
+    const json = await response.json();
     const recipes = json.recipes;
     let html = "";
     //put every recipe title with it's ingrediants in an html variable as list elements
     recipes.forEach(function(recipe){
-        html += `<li>
-        <h1> ${recipe.title} </h1>
-        <h3>sastavki:</h3>
-        <ul>`;
+        html += `<h1> ${recipe.title} </h1>
+        <h3>ingredients:</h3>`;
         recipe.ingredients.forEach(function(ingredient){
-            html += `<li> ${ingredient} </li>`
+            html += `<ul><li> ${ingredient} </li></ul>`
         });
-        html += '</ul></li>'
     });
     //puting the html variable in to the HTML as an unsorted list
     document.getElementById("recipes").innerHTML = `<ul>${html}</ul>`;
 }
+//uncomment the next line to skip the registration page while testing
+show_recipes()
