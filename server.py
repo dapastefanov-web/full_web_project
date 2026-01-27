@@ -51,16 +51,11 @@ class S(BaseHTTPRequestHandler):
         """This just generates an HTML document that includes `message`
         in the body. Override, or re-write this do do more interesting stuff.
         """
-        content = f"<html><body><h1>{self.path}</h1>{message}</body></html>"
+        content = f"<html><body><h1>{self.path[1:]}</h1>{message}</body></html>"
         return content.encode("utf8")  # NOTE: must return a bytes object!
 
     def get_data(self):
         f = open("sources/api.json",encoding='utf-8')
-        data = f.read()
-        f.close()
-        return data
-    def get_register_html(self):
-        f = open("sources/register.html",encoding='utf-8')
         data = f.read()
         f.close()
         return data
@@ -78,8 +73,6 @@ class S(BaseHTTPRequestHandler):
         html="Home"
         if self.path == "/recepti":
             html=recepti(self.get_data())
-        if self.path == "/register":
-            html = self.get_register_html()
 
         self.wfile.write(self._html(html))
 
