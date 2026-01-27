@@ -55,23 +55,31 @@ class S(BaseHTTPRequestHandler):
         return content.encode("utf8")  # NOTE: must return a bytes object!
 
     def get_data(self):
-        f = open("api.json",encoding='utf-8')
+        f = open("sources/api.json",encoding='utf-8')
         data = f.read()
         f.close()
         return data
-    def get_register(self):
-        f = open("register.html",encoding='utf-8')
+    def get_register_html(self):
+        f = open("sources/register.html",encoding='utf-8')
+        data = f.read()
+        f.close()
+        return data
+    def get_file(self,file):
+        f = open(file)
         data = f.read()
         f.close()
         return data
 
     def do_GET(self):
         self._set_headers()
+        if "/sources/" in self.path:
+            self.wfile.write(self.get_file(self.path[1:]).encode("utf8"))
+            return
         html="Home"
         if self.path == "/recepti":
             html=recepti(self.get_data())
         if self.path == "/register":
-            html = self.get_register()
+            html = self.get_register_html()
 
         self.wfile.write(self._html(html))
 
