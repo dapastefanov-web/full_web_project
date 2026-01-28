@@ -57,7 +57,7 @@ def recepti(data):
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        # self.send_header("Content-type", "text/html")
         self.end_headers()
 
     def _html(self, message):
@@ -96,9 +96,21 @@ class S(BaseHTTPRequestHandler):
         self._set_headers()
 
     def do_POST(self):
+        # 1. Изчисляване на дължината на тялото
+        content_length = int(self.headers['Content-Length'])
+        
+        # 2. Четене на суровите данни
+        post_data = self.rfile.read(content_length)
+        
+        # 3. Декодиране (например от UTF-8)
+        decoded_data = post_data.decode('utf-8')
+        personal_data = decoded_data.split("&")
+        print(f"Получено тяло: {decoded_data}")
+        for data in personal_data:
+            print(data)
         # Doesn't do anything with posted data
         self._set_headers()
-        self.wfile.write(self._html("POST!"))
+        self.wfile.write(self._html("Post"))
 
 
 def run(server_class=HTTPServer, handler_class=S, addr="localhost", port=8000):
