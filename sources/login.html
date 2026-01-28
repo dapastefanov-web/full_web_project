@@ -2,22 +2,29 @@
 <html>
     <head>
         <title>Login</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id = "registration_page" style = "display: inline;">
-            <h1>Log In:</h1>
-
-            <h2>Email:</h2>
-            <input type = "email" id = "email">
-
-            <h2>Password:</h2>
-            <input type = "password" id = "password">
-
-            <button onclick = "login()">Login</button><br>
-
-            <a href = "/sources/register.html">Register</a>
+            <div class="container">
+                <div class="heading">Login to your account</div>
+                    <form class="form" action="">
+                    <div class="input-field">
+                        <input type="email" required autocomplete="off" id="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required autocomplete="off" id="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn" onclick = "login()">Login</button>
+                        <div class="acc-text">Don't have an account?
+                        <a style = "color: blue; cursor: pointer;" href="register.html">Register</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <script src = "login.js"></script>
+        <script src = "/sources/register.js"></script>
     </body>
 </html>
