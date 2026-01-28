@@ -107,7 +107,7 @@ class S(BaseHTTPRequestHandler):
         personal_data = decoded_data.split("&")
         print(f"Получено тяло: {decoded_data}")
         for data in personal_data:
-            print(data)
+            print(data.split("=")[1])
         # Doesn't do anything with posted data
         self._set_headers()
         self.wfile.write(self._html("Post"))
