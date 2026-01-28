@@ -1,3 +1,3 @@
 function login(){
-            location="/recepti"
+        location="/recepti"
     }

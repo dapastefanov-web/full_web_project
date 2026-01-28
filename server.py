@@ -36,6 +36,8 @@ def recepta(data, recepta_index):
     recepta = recepti[recepta_index]
     # put a recipe title with it's ingrediants in an html variable as list elements
     html += f"<li><h1> { recepta["title"] } </h1><h3> ingredients: </h3><ul>"
+    for image in recepta["img"]:
+        html += f"<img src = '{ image }'>"
     for ingredient in recepta["ingredients"]:
         html += f"<li> { ingredient } </li>"
     html += "</ul>preparation:<ol>"
@@ -68,7 +70,7 @@ class S(BaseHTTPRequestHandler):
         return content.encode("utf8")  # NOTE: must return a bytes object!
 
     def get_data(self):
-        f = open("sources/api.json",encoding='utf-8')
+        f = open("sources/recipes.json",encoding='utf-8')
         data = f.read()
         f.close()
         return data
