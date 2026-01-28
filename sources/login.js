@@ -11,7 +11,7 @@ function login(){
             window.alert ( "type in a Password" );
             break;
         default:
-            window.alert ( `You are loged in` );
+            window.alert ( "You are loged in" );
             document.title = "Starting page";
             location="/recepti"
     }
