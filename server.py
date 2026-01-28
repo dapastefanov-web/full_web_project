@@ -30,17 +30,30 @@ import argparse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
+def recepta(data, recepta_index):
+    recepti = json.loads(data)["recipes"]
+    html = ""
+    recepta = recepti[recepta_index]
+    # put a recipe title with it's ingrediants in an html variable as list elements
+    html += f"<li><h1> { recepta["title"] } </h1><h3> ingredients: </h3><ul>"
+    for ingredient in recepta["ingredients"]:
+        html += f"<li> { ingredient } </li>"
+    html += "</ul>preparation:<ol>"
+    for step in recepta["preparation"]:
+        html += f"<li> { step } </li>"
+    html += "</ol></li>"
+    # puting the html variable in to the HTML as an unsorted list
+    return f"<ul> { html } </ul>"
+
 def recepti(data):
     recepti = json.loads(data)["recipes"]
     html = ""
-    # put every recipe title with it's ingrediants in an html variable as list elements
-    for recepta in recepti:
-        html += f"<li><h1> { recepta["title"] } </h1><h3> ingredients: </h3><ul>"
-        for ingredient in recepta["ingredients"]:
-            html += f"<li> { ingredient } </li>"
-        html += "</ul></li>"
+    # put every recipe title html variable as list elements
+    for i, recepta in enumerate(recepti):
+        html += f'<a href = "/recepta/{i}"><li><h1> { recepta["title"] } </h1></li></a>'
     # puting the html variable in to the HTML as an unsorted list
     return f"<ul> { html } </ul>"
+
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
@@ -51,7 +64,7 @@ class S(BaseHTTPRequestHandler):
         """This just generates an HTML document that includes `message`
         in the body. Override, or re-write this do do more interesting stuff.
         """
-        content = f"<html><body><h1>{self.path[1:]}</h1>{message}</body></html>"
+        content = f'<html><head><meta charset="utf-8"></head><body><h1>{self.path[1:]}</h1>{message}</body></html>'
         return content.encode("utf8")  # NOTE: must return a bytes object!
 
     def get_data(self):
@@ -72,7 +85,10 @@ class S(BaseHTTPRequestHandler):
             return
         html="Home"
         if self.path == "/recepti":
-            html=recepti(self.get_data())
+            html = recepti(self.get_data())
+        if "/recepta/" in self.path:
+            recepta_index = int(self.path[9:])
+            html = recepta(self.get_data(),recepta_index)
 
         self.wfile.write(self._html(html))
 

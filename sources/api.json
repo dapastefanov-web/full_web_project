@@ -1,5 +1,23 @@
 {   "recipes":
-[
+[       
+        {
+            "title":"mufin"
+            ,"img":"url"
+            ,"ingredients":[
+                "брашно"
+                ,"zahar"
+                ,"mlqko"
+                ,"kakao"
+                ,"bakpulver"
+                ,"olio"
+                ,"vaniliq"
+            ]
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
+        }
+        ,
         {
             "title":"pala4inka"
             ,"img":"url"
@@ -8,7 +26,10 @@
                 ,"qjca"
                 ,"mlqko"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
@@ -18,7 +39,10 @@
                 "meso"
                 ,"ketchup"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
@@ -29,7 +53,10 @@
                 ,"qjca"
                 ,"mlqko"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
@@ -42,7 +69,10 @@
                 ,"zahar"
                 ,"biskviti"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
     ]
 
