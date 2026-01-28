@@ -16,7 +16,7 @@ function register(){
             window.alert ( "type in a Password" );
             break;
         default:
-            window.alert ( `You are registered` );
+            window.alert ( "You are registered" );
             document.title = "Starting page";
             location="/recepti"
     }
