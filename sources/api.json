@@ -1,14 +1,35 @@
 {   "recipes":
-[
+[       
+        {
+            "title":"mufin"
+            ,"img":"url"
+            ,"ingredients":[
+                "брашно"
+                ,"zahar"
+                ,"mlqko"
+                ,"kakao"
+                ,"bakpulver"
+                ,"olio"
+                ,"vaniliq"
+            ]
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
+        }
+        ,
         {
             "title":"pala4inka"
             ,"img":"url"
             ,"ingredients":[
-                "Брашно"
-                ,"Яйца"
-                ,"Мляко"
+                "bra6no"
+                ,"qjca"
+                ,"mlqko"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
@@ -18,31 +39,40 @@
                 "meso"
                 ,"ketchup"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
             "title":"gofreti"
             ,"img":"url"
             ,"ingredients":[
-                "Брашно"
-                ,"Яйца"
-                ,"Мляко"
+                "bra6no"
+                ,"qjca"
+                ,"mlqko"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
         ,
         {
             "title":"torta"
             ,"img":"url"
             ,"ingredients":[
-                "Брашно"
-                ,"Яйца"
-                ,"Мляко"
+                "bra6no"
+                ,"qjca"
+                ,"mlqko"
                 ,"zahar"
                 ,"biskviti"
             ]
-            ,"preparation":"burka6, izliva6, parji6"
+            ,"preparation":[
+                "burka6"
+                ,"izliva6"
+                ,"pe4e6"]
         }
     ]
 
