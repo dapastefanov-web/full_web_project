@@ -1,6 +1,0 @@
-Terminal command to host local server:
-    python -m http.server
-    Serving HTTP on 0.0.0.0 port 8000 ...
-    
-Project location:
-    http://localhost:8000/sources/login.html

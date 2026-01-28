@@ -2,26 +2,36 @@
 <html>
     <head>
         <title>Login</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>  
         <div id = "registration_page" style = "display: inline;">
-            <h1>Registration:</h2>
-
-            <h2>Name:</h2>
-            <input type = "text" id = "name">
-
-            <h2>Email:</h2>
-            <input type = "email" id = "email">
-
-            <h2>Password:</h2>
-            <input type = "password" id = "password">
-
-            <h2>Phone number:</h2>
-            <h5>*optional</h5>
-            <input type = "tel" id = "phone_number"><br><br>
-            
-            <button onclick = "register()">Register</button><br>
-
+            <div class="container">
+                <div class="heading">Login to your account</div>
+                    <form class="form" action="">
+                    <div class="input-field">
+                        <input type="text" required autocomplete="off" id="name">
+                        <label for="username">Full name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" required autocomplete="off" id="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required autocomplete="off" id="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="tel" required autocomplete="off" id="phone_number">
+                        <label for="phone_number">Phone Number</label>
+                    </div>
+                </div>
+                    <div class="btn-container">
+                        <button class="btn" onclick = "register()">Register</button>
+                        <div class="acc-text">Don't have an account?
+                        <span style = "color: blue; cursor: pointer;"> Create account</span>
+                    </div>
+                </div>
             <a href = "/sources/login.html">Login</a>
         </div>
         
