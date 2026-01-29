@@ -30,6 +30,7 @@ import argparse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
+
 def recepta(data, recepta_index):
     recepti = json.loads(data)["recipes"]
     html = ""
@@ -55,8 +56,17 @@ def recepti(data):
         html += f'<a href = "/recepta/{i}"><li><h1> { recepta["title"] } </h1></li></a>'
     # puting the html variable in to the HTML as an unsorted list
     return f"<ul> { html } </ul>"
-
+def getDictFromString(string):
+    decoded= string.decode('utf-8')
+    data = decoded.split("&")
+    dict = {}
+    for kv in data:
+        key , value = kv.split("=")
+        dict[key]=value
+    return dict
 class S(BaseHTTPRequestHandler):
+    def isLogin(self):
+        print(getDictFromString(self.headers['Cookie']))
     def _set_headers(self):
         self.send_response(200)
         # self.send_header("Content-type", "text/html")
@@ -86,7 +96,7 @@ class S(BaseHTTPRequestHandler):
             self.wfile.write(self.get_file(self.path[1:]).encode("utf8"))
             return
         html="Home"
-        if self.path == "/recepti":
+        if self.path == "/recepti" and self.isLogin():
             html = recepti(self.get_data())
         if "/recepta/" in self.path:
             recepta_index = int(self.path[9:])
@@ -140,6 +150,7 @@ class S(BaseHTTPRequestHandler):
                     if line.split(",")[1] == personal_json[0]:
                         if line.split(",")[2] == personal_json[1]:
                             isExisting = True
+                            security_code = 758324653487
             if (isExisting):
                 self.send_response(301)        
                 self.send_header('Location', 'http://localhost:8000/recepti')
