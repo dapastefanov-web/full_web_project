@@ -5,21 +5,40 @@
     font-family: sans-serif;
   }
 
-body{
+.registerbody, .loginbody{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 1000px;
+  }
+
+.registerbody{
     background-image: url(https://i.pinimg.com/originals/3b/e8/ba/3be8ba724e3bc3c01ab91b478eae2749.gif);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: 100%;
-  }
+}
+
+.loginbody{
+    background-image: url(https://i.pinimg.com/originals/9b/a3/b2/9ba3b225db344aff6def3f407a370a62.gif);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center;
+}
 
 .container{
     border: 1px solid #8d8d8d;
     padding: 20px;
     border-radius: 15px;
     background-color: transparent;
+    backdrop-filter: blur(30px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+.container:hover{
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
+    transform: scale(1.05);
   }
 
 .container .heading{
