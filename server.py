@@ -36,6 +36,8 @@ def recepta(data, recepta_index):
     recepta = recepti[recepta_index]
     # put a recipe title with it's ingrediants in an html variable as list elements
     html += f"<li><h1> { recepta["title"] } </h1><h3> ingredients: </h3><ul>"
+    for image in recepta["img"]:
+        html += f"<img src = '{ image }'>"
     for ingredient in recepta["ingredients"]:
         html += f"<li> { ingredient } </li>"
     html += "</ul>preparation:<ol>"
@@ -68,7 +70,7 @@ class S(BaseHTTPRequestHandler):
         return content.encode("utf8")  # NOTE: must return a bytes object!
 
     def get_data(self):
-        f = open("sources/api.json",encoding='utf-8')
+        f = open("sources/recipes.json",encoding='utf-8')
         data = f.read()
         f.close()
         return data
@@ -96,9 +98,54 @@ class S(BaseHTTPRequestHandler):
         self._set_headers()
 
     def do_POST(self):
-        # Doesn't do anything with posted data
-        self._set_headers()
-        self.wfile.write(self._html("POST!"))
+        if self.path == "/sources/register.html":
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            decoded_data = post_data.decode('utf-8')
+            personal_data = decoded_data.split("&")
+
+            isExisting = False
+            personal_json = []
+
+            for data in personal_data:
+                personal_json.append(data.split("=")[1])
+
+            with open('sources/users.csv','r') as file:
+                for line in file:
+                    if line.split(",")[1] == personal_json[1]:
+                        isExisting = True
+
+            if not(isExisting):
+                with open('sources/users.csv','a') as file:
+                    file.write(','.join(personal_json) + "\n")
+
+            self.send_response(301)
+            self.send_header('Location', 'http://localhost:8000/sources/login.html')
+            self.end_headers()
+        
+        if self.path == "/sources/login.html":
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            decoded_data = post_data.decode('utf-8')
+            personal_data = decoded_data.split("&")
+
+            isExisting = False
+            personal_json = []
+
+            for data in personal_data:
+                personal_json.append(data.split("=")[1])
+
+            with open('sources/users.csv','r') as file:
+                for line in file:
+                    if line.split(",")[1] == personal_json[0]:
+                        if line.split(",")[2] == personal_json[1]:
+                            isExisting = True
+            if (isExisting):
+                self.send_response(301)        
+                self.send_header('Location', 'http://localhost:8000/recepti')
+                self.end_headers()
+
+        # self.wfile.write()
 
 
 def run(server_class=HTTPServer, handler_class=S, addr="localhost", port=8000):

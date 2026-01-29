@@ -8,25 +8,26 @@
         <div id = "registration_page" style = "display: inline;">
             <div class="container">
                 <div class="heading">Create your account</div>
-                    <form class="form" action="">
+                    <form class="form" action="" method="post">
                         <div class="input-field">
-                            <input type="text" required id="name">
-                            <label for="username">Full name</label> 
+                            <input type="text" required id="username" name="username">
+                            <label for="username">Full name</label>
                         </div>
                         <div class="input-field">
-                            <input type="email" required id="email">
+                            <input type="email" required id="email" name="email">
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field">
-                            <input type="password" required id="password">
+                            <input type="password" required id="password" name="password">
                             <label for="password">Password</label>
                         </div>
                         <div class="input-field">
-                            <input type="tel" required id="phone_number">
+                            <input type="tel" required id="phone_number" name="phone_number">
                             <label for="phone_number">Phone Number</label>
                         </div>
                         <div class="btn-container">
-                            <button class="btn" onclick = "register()">Register</button>
+                            <input class="btn" type="submit" value="Submit"/>
+                            <!-- <button class="btn" type="submit">Register</button> -->
                             <div class="acc-text">Already have an account?
                             <a style = "color: blue; cursor: pointer;" href="login.html"> Login</a>
                         </div>
@@ -34,6 +35,6 @@
                 </div>
             </div>
         </div>
-        <script src = "/sources/register.js"></script>
+        <script></script>
     </body>
 </html>
