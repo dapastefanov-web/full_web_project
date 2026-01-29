@@ -98,21 +98,54 @@ class S(BaseHTTPRequestHandler):
         self._set_headers()
 
     def do_POST(self):
-        # 1. Изчисляване на дължината на тялото
-        content_length = int(self.headers['Content-Length'])
+        if self.path == "/sources/register.html":
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            decoded_data = post_data.decode('utf-8')
+            personal_data = decoded_data.split("&")
+
+            isExisting = False
+            personal_json = []
+
+            for data in personal_data:
+                personal_json.append(data.split("=")[1])
+
+            with open('sources/users.csv','r') as file:
+                for line in file:
+                    if line.split(",")[1] == personal_json[1]:
+                        isExisting = True
+
+            if not(isExisting):
+                with open('sources/users.csv','a') as file:
+                    file.write(','.join(personal_json) + "\n")
+
+            self.send_response(301)
+            self.send_header('Location', 'http://localhost:8000/sources/login.html')
+            self.end_headers()
         
-        # 2. Четене на суровите данни
-        post_data = self.rfile.read(content_length)
-        
-        # 3. Декодиране (например от UTF-8)
-        decoded_data = post_data.decode('utf-8')
-        personal_data = decoded_data.split("&")
-        print(f"Получено тяло: {decoded_data}")
-        for data in personal_data:
-            print(data.split("=")[1])
-        # Doesn't do anything with posted data
-        self._set_headers()
-        self.wfile.write(self._html("Post"))
+        if self.path == "/sources/login.html":
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            decoded_data = post_data.decode('utf-8')
+            personal_data = decoded_data.split("&")
+
+            isExisting = False
+            personal_json = []
+
+            for data in personal_data:
+                personal_json.append(data.split("=")[1])
+
+            with open('sources/users.csv','r') as file:
+                for line in file:
+                    if line.split(",")[1] == personal_json[0]:
+                        if line.split(",")[2] == personal_json[1]:
+                            isExisting = True
+            if (isExisting):
+                self.send_response(301)        
+                self.send_header('Location', 'http://localhost:8000/recepti')
+                self.end_headers()
+
+        # self.wfile.write()
 
 
 def run(server_class=HTTPServer, handler_class=S, addr="localhost", port=8000):

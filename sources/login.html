@@ -8,17 +8,17 @@
         <div id = "registration_page" style = "display: inline;">
             <div class="container">
                 <div class="heading">Login to your account</div>
-                    <form class="form" action="">
+                    <form class="form" action="" method="post">
                         <div class="input-field">
-                            <input type="email" required id="email">
+                            <input type="email" required id="email" name="email">
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field">
-                            <input type="password" required id="password">
+                            <input type="password" required id="password" name="password">
                             <label for="password">Password</label>
                         </div>
                         <div class="btn-container">
-                            <button class="btn" onclick = "register()">Login</button>
+                            <input class="btn" type="submit" value="Submit"/>
                             <div class="acc-text">Don't have an account?
                             <a style = "color: blue; cursor: pointer;" href="/sources/register.html">Register</a>
                         </div>
@@ -26,6 +26,6 @@
                 </div>
             </div>
         </div>
-        <script src = "/sources/register.js"></script>
+        <script></script>
     </body>
 </html>
